@@ -1,0 +1,258 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ATIGA NFT Certificate of Origin Schema",
+  "type": "object",
+  "additionalProperties": false,
+
+  "required": [
+    "name",
+    "description",
+    "co_document_details",
+    "blockchain_proof"
+  ],
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "image": {
+      "type": "string",
+      "format": "uri"
+    },
+    "external_url": {
+      "type": "string",
+      "format": "uri"
+    },
+    "attributes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [ "trait_type", "value" ],
+        "properties": {
+          "trait_type": {
+            "type": "string"
+          },
+          "value": {}
+        }
+      }
+    },
+
+    "co_document_details": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [ "co_id", "co_standard", "reference_number", "issuing_country", "issue_date", "exporter",  "consignee", "goods_items",  "certification"  ],
+      "properties": {
+        "co_id": {
+          "type": "string"
+        },
+        "co_standard": {
+          "type": "string"
+        },
+        "reference_number": {
+          "type": "string"
+        },
+        "issuing_country": {
+          "type": "string"
+        },
+        "issue_date": {
+          "type": "string",
+          "format": "date"
+        },
+
+        "exporter": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [  "name",  "address",  "country",  "wallet_address"  ],
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "address": {
+              "type": "string"
+            },
+            "country": {
+              "type": "string"
+            },
+            "tax_id": {
+              "type": "string"
+            },
+            "wallet_address": {
+              "type": "string",
+              "pattern": "^0x[a-fA-F0-9]{40}$"
+            }
+          }
+        },
+
+        "consignee": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [ "name", "address", "country", "wallet_address"],
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "address": {
+              "type": "string"
+            },
+            "country": {
+              "type": "string"
+            },
+            "wallet_address": {
+              "type": "string",
+              "pattern": "^0x[a-fA-F0-9]{40}$"
+            }
+          }
+        },
+
+        "transport": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [ "mode","departure_date", "port_of_loading", "port_of_discharge"],
+          "properties": {
+            "mode": {
+              "type": "string"
+            },
+            "departure_date": {
+              "type": "string",
+              "format": "date"
+            },
+            "vessel_or_flight_no": {
+              "type": "string"
+            },
+            "port_of_loading": {
+              "type": "string"
+            },
+            "port_of_discharge": {
+              "type": "string"
+            },
+            "bill_of_lading_no": {
+              "type": "string"
+            }
+          }
+        },
+
+        "goods_items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["item_no","hs_code","description", "origin_criterion","quantity"],
+            "properties": {
+              "item_no": {
+                "type": "integer"
+              },
+              "hs_code": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "origin_criterion": {
+                "type": "string"
+              },
+              "gross_weight": {
+                "type": "string"
+              },
+              "quantity": {
+                "type": "string"
+              },
+              "fob_value": {
+                "type": "string"
+              },
+              "invoice_number": {
+                "type": "string"
+              },
+              "invoice_date": {
+                "type": "string",
+                "format": "date"
+              }
+            }
+          }
+        },
+
+        "special_cases": {
+          "type": "object",
+          "additionalProperties": false,
+
+          "properties": {
+
+            "third_country_invoicing": {
+              "type": "boolean"
+            },
+
+            "accumulation": {
+              "type": "boolean"
+            },
+
+            "back_to_back_co": {
+              "type": "boolean"
+            },
+
+            "partial_cumulation": {
+              "type": "boolean"
+            },
+
+            "exhibition": {
+              "type": "boolean"
+            },
+
+            "de_minimis": {
+              "type": "boolean"
+            },
+
+            "issued_retroactively": {
+              "type": "boolean"
+            }
+          }
+        },
+
+        "certification": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["exporter_declaration_date",  "issuing_authority",  "certification_date"  ],
+          "properties": {
+            "exporter_declaration_date": {
+              "type": "string",
+              "format": "date"
+            },
+            "issuing_authority": {
+              "type": "string"
+            },
+            "certification_date": {
+              "type": "string",
+              "format": "date"
+            },
+            "authority_signature": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+
+    "blockchain_proof": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["nft_token_id","contract_address", "co_document_hash", "ipfs_cid"],
+      "properties": {
+        "nft_token_id": {
+          "type": "integer"
+        },
+        "contract_address": {
+          "type": "string",
+          "pattern": "^0x[a-fA-F0-9]{40}$"
+        },
+        "co_document_hash": {
+          "type": "string"
+        },
+        "ipfs_cid": {
+          "type": "string",
+          "minLength": 10
+        }
+      }
+    }
+  }
+}
