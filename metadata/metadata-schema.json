@@ -1,0 +1,85 @@
+{
+  "name": "C/O - ATIGA FORM D - VN-D-2026-00001",
+  "description": "Giấy chứng nhận xuất xứ điện tử (e-CoO) mẫu D theo Hiệp định Thương mại Hàng hóa ASEAN (ATIGA). Tham chiếu: VN-D-2026-00001.",
+  "image": "ipfs://<Hash_của_bản_scan_hoặc_QR_Code_trên_IPFS>",
+  "external_url": "https://your-dapp-domain.com/co/VN-D-2026-00001",
+  "attributes": [
+    { "trait_type": "C/O Standard", "value": "ATIGA_FORM_D" },
+    { "trait_type": "Issuing Country", "value": "Vietnam" },
+    { "display_type": "date", "trait_type": "Issue Date", "value": 1714694400 },
+    { "trait_type": "Origin Criterion", "value": "RVC 40%" },
+    { "trait_type": "Revocation Status", "value": "Valid" },
+    
+    { "trait_type": "Third Country Invoicing", "value": "False" },
+    { "trait_type": "Back-to-Back CO", "value": "False" },
+    { "trait_type": "Accumulation", "value": "False" },
+    { "trait_type": "Partial Cumulation", "value": "False" },
+    { "trait_type": "Exhibition", "value": "False" },
+    { "trait_type": "De Minimis", "value": "False" },
+    { "trait_type": "Issued Retroactively", "value": "False" }
+  ],
+
+  "co_document_details": {
+    "co_id": "CO-2026-00001",
+    "co_standard": "ATIGA_FORM_D",
+    "reference_number": "VN-D-2026-00001",
+    "issuing_country": "Vietnam",
+    "issue_date": "2026-05-03",
+    
+    "exporter": {
+      "name": "Cong ty TNHH Xuat Nhap Khau A",
+      "address": "123 Duong ABC, TP.HCM",
+      "country": "Vietnam",
+      "tax_id": "0312345678",
+      "wallet_address": "0x123abc..."
+    },
+    "consignee": {
+      "name": "Company B PTE LTD",
+      "address": "456 Road XYZ, Singapore",
+      "country": "Singapore",
+      "wallet_address": "0x456def..."
+    },
+    "transport": {
+      "mode": "Sea",
+      "departure_date": "2026-05-05",
+      "vessel_or_flight_no": "Vessel 999",
+      "port_of_loading": "Cat Lai Port",
+      "port_of_discharge": "Port of Singapore",
+      "bill_of_lading_no": "BL123456"
+    },
+    "goods_items": [
+      {
+        "item_no": 1,
+        "hs_code": "100590",
+        "description": "Corn (Maize)",
+        "origin_criterion": "RVC 40%",
+        "gross_weight": "5000 kg",
+        "quantity": "5000 kg",
+        "fob_value": "15000 USD",
+        "invoice_number": "INV-2026-001",
+        "invoice_date": "2026-05-01"
+      }
+    ],
+    "special_cases": {
+      "third_country_invoicing": false,
+      "accumulation": false,
+      "back_to_back_co": false,
+      "partial_cumulation": false,
+      "exhibition": false,
+      "de_minimis": false,
+      "issued_retroactively": false
+    },
+    "certification": {
+      "exporter_declaration_date": "2026-05-02",
+      "issuing_authority": "Ministry of Industry and Trade (MOIT) Vietnam",
+      "certification_date": "2026-05-03",
+      "authority_signature": "Nguyen Van C"
+    }
+  },
+  "blockchain_proof": {
+    "nft_token_id": "1",
+    "contract_address": "0x789...",
+    "co_document_hash": "0xabc123...",
+    "ipfs_cid": "bafybeibnsou..."
+  }
+}
