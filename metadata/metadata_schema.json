@@ -77,7 +77,7 @@
     }
   },
   "blockchain_proof": {
-    "nft_token_id": "1",
+    "nft_token_id": 1,
     "contract_address": "0x789...",
     "co_document_hash": "0xabc123...",
     "ipfs_cid": "bafybeibnsou..."
