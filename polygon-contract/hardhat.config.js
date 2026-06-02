@@ -46,5 +46,13 @@ export default defineConfig({
       url: configVariable("SEPOLIA_RPC_URL"),
       accounts: [configVariable("SEPOLIA_PRIVATE_KEY")],
     },
+    polygon_amoy: {
+      type: "http",
+      chainType: "l1",
+      url: "https://rpc-amoy.polygon.technology",
+      accounts: ["0x86de4d60358fe7d947c85ee64af0c5628b6903ec5225b05e832cdad84f3bd324"], 
+    },
   },
 });
+
+

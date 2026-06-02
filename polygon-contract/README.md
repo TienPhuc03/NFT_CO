@@ -52,3 +52,19 @@ Then deploy with:
 ```shell
 npx.cmd hardhat ignition deploy --network sepolia ignition/modules/Cer_NFT.js
 ```
+
+## Verification Portal
+
+A static Tailwind-based frontend lives in `portal/`.
+
+### What you need
+
+- MetaMask for minting and status updates
+- A deployed contract address
+- Optional Pinata JWT if you want to upload metadata from the browser
+
+### Notes
+
+- The current portal uses Tailwind CDN and ethers CDN, so it does not require extra npm installs.
+- Polygon Amoy is prefilled as the default read/write network.
+- You can open `portal/index.html` from a local static server or a browser extension such as Live Server.

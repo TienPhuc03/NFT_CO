@@ -1,6 +1,6 @@
 # Node modules
 /node_modules
-
+/portal/node_modules
 # Compilation output
 /dist
 
@@ -32,3 +32,4 @@
 
 # Snapshot cheatcodes output
 /snapshots
+
