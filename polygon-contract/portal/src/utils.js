@@ -10,11 +10,19 @@ export function loadJson(key, fallback = null) {
 }
 
 export function saveJson(key, value) {
-  localStorage.setItem(key, JSON.stringify(value));
+  try {
+    localStorage.setItem(key, JSON.stringify(value));
+  } catch {
+    return;
+  }
 }
 
 export function removeJson(key) {
-  localStorage.removeItem(key);
+  try {
+    localStorage.removeItem(key);
+  } catch {
+    return;
+  }
 }
 
 export function updateNestedValue(source, path, value) {
@@ -75,6 +83,10 @@ export function deepMergeDraft(baseDraft, storedDraft) {
   };
 
   return nextDraft;
+}
+
+export function cloneJson(value) {
+  return JSON.parse(JSON.stringify(value));
 }
 
 export function formatDateTime(value) {
@@ -216,9 +228,9 @@ export function buildMetadata(issuerDraft, contractAddress) {
     description: issuerDraft.description,
     image: issuerDraft.image,
     external_url: issuerDraft.external_url,
-    co_document_details: structuredClone(issuerDraft.co_document_details),
+    co_document_details: cloneJson(issuerDraft.co_document_details),
     blockchain_proof: {
-      ...structuredClone(issuerDraft.blockchain_proof),
+      ...cloneJson(issuerDraft.blockchain_proof),
       contract_address: contractAddress,
     },
   };

@@ -104,7 +104,7 @@ export function createDefaultIssuerDraft(contractAddress = DEFAULT_CONTRACT_ADDR
     },
     blockchain_proof: {
       nft_token_id: 0,
-      contract_address,
+      contract_address: contractAddress,
       co_document_hash: "",
       ipfs_cid: "",
     },

@@ -55,7 +55,15 @@ npx.cmd hardhat ignition deploy --network sepolia ignition/modules/Cer_NFT.js
 
 ## Verification Portal
 
-A static Tailwind-based frontend lives in `portal/`.
+A React/Vite/Tailwind frontend lives in `portal/`.
+
+### Run the portal
+
+```shell
+cd portal
+npm.cmd install
+npm.cmd run dev
+```
 
 ### What you need
 
@@ -65,6 +73,6 @@ A static Tailwind-based frontend lives in `portal/`.
 
 ### Notes
 
-- The current portal uses Tailwind CDN and ethers CDN, so it does not require extra npm installs.
+- The portal reads defaults from Vite env vars like `VITE_CONTRACT_ADDRESS`, `VITE_RPC_URL`, `VITE_IPFS_GATEWAY`, and `VITE_PINATA_JWT`.
 - Polygon Amoy is prefilled as the default read/write network.
-- You can open `portal/index.html` from a local static server or a browser extension such as Live Server.
+- Production build: `npm.cmd run build` inside `portal/`.

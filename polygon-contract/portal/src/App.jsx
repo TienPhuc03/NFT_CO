@@ -738,6 +738,38 @@ function App() {
             {banner.text}
           </div>
 
+          <div className="mt-6 grid gap-4 lg:grid-cols-3">
+            <div className="rounded-[1.5rem] border border-blue-100 bg-gradient-to-br from-blue-50 to-white p-5">
+              <p className="text-xs font-semibold uppercase tracking-[0.25em] text-blue-600">4.1 Issuer Portal</p>
+              <h3 className="mt-2 text-lg font-bold text-slate-950">Nhập thông tin lô hàng</h3>
+              <ul className="mt-3 space-y-2 text-sm leading-6 text-slate-600">
+                <li>• Form nhập thông tin → tạo metadata JSON → upload IPFS</li>
+                <li>• Ký và gửi mint NFT qua MetaMask</li>
+                <li>• Sinh QR chứa tokenId để gắn vào lô hàng</li>
+              </ul>
+            </div>
+
+            <div className="rounded-[1.5rem] border border-blue-100 bg-gradient-to-br from-cyan-50 to-white p-5">
+              <p className="text-xs font-semibold uppercase tracking-[0.25em] text-cyan-700">4.2 Verifier Portal</p>
+              <h3 className="mt-2 text-lg font-bold text-slate-950">Xác minh nguồn gốc</h3>
+              <ul className="mt-3 space-y-2 text-sm leading-6 text-slate-600">
+                <li>• Nhập tokenId hoặc scan QR → fetch metadata từ IPFS</li>
+                <li>• Hiển thị trạng thái VALID, SUSPENDED, REVOKED</li>
+                <li>• Hiển thị lịch sử mint, transfer, status changes</li>
+              </ul>
+            </div>
+
+            <div className="rounded-[1.5rem] border border-blue-100 bg-gradient-to-br from-sky-50 to-white p-5">
+              <p className="text-xs font-semibold uppercase tracking-[0.25em] text-sky-700">4.3 Test scenarios</p>
+              <h3 className="mt-2 text-lg font-bold text-slate-950">Kiểm thử chức năng</h3>
+              <ul className="mt-3 space-y-2 text-sm leading-6 text-slate-600">
+                <li>• C/O hợp lệ, C/O giả mạo, tokenId không tồn tại</li>
+                <li>• C/O đã thu hồi, C/O bị suspend, metadata lỗi</li>
+                <li>• Kiểm tra responsive trên desktop và mobile</li>
+              </ul>
+            </div>
+          </div>
+
           <div className="mt-5 grid gap-4 lg:grid-cols-4">
             <ConfigInput
               label="Contract address"
