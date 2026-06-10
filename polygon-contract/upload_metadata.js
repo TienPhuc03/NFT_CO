@@ -5,7 +5,8 @@ import FormData from "form-data";
 
 dotenv.config();
 
-const PINATA_JWT = process.env.PINATA_JWT;
+
+const PINATA_JWT = process.env.PINATA_SECRET_API_KEY;
 
 async function uploadJsonMetadata() {
     try {
