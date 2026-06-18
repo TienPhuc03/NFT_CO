@@ -5,6 +5,9 @@ import hardhatKeystorePlugin from "@nomicfoundation/hardhat-keystore";
 import hardhatMochaPlugin from "@nomicfoundation/hardhat-mocha";
 import hardhatVerifyPlugin from "@nomicfoundation/hardhat-verify";
 import { configVariable, defineConfig } from "hardhat/config";
+import "dotenv/config";
+
+console.log("API KEY =", process.env.POLYGONSCAN_API_KEY);
 
 export default defineConfig({
   plugins: [
@@ -40,18 +43,15 @@ export default defineConfig({
       type: "edr-simulated",
       chainType: "op",
     },
-    sepolia: {
-      type: "http",
-      chainType: "l1",
-      url: configVariable("SEPOLIA_RPC_URL"),
-      accounts: [configVariable("SEPOLIA_PRIVATE_KEY")],
-    },
     polygon_amoy: {
       type: "http",
       chainType: "l1",
       url: "https://rpc-amoy.polygon.technology",
-      accounts: ["0x86de4d60358fe7d947c85ee64af0c5628b6903ec5225b05e832cdad84f3bd324"], 
+      accounts: [configVariable("PRIVATE_KEY")]
     },
+  },
+  etherscan: {
+    apiKey: configVariable("POLYGONSCAN_API_KEY"),
   },
 });
 
