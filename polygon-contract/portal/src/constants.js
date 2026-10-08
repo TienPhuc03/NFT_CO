@@ -2,7 +2,7 @@ export const AMOY_CHAIN_ID = 80002;
 export const AMOY_CHAIN_HEX = "0x13882";
 export const AMOY_CHAIN_NAME = "Polygon Amoy";
 
-export const DEFAULT_CONTRACT_ADDRESS = "0xff70689039ec4577FC30444f632BDE738445A35d";
+export const DEFAULT_CONTRACT_ADDRESS = "0x9509237D04a42A7A647869b799f505a846115bb0";
 export const DEFAULT_RPC_URL = "https://rpc-amoy.polygon.technology";
 export const DEFAULT_IPFS_GATEWAY = "https://gateway.pinata.cloud/ipfs/";
 
@@ -97,7 +97,7 @@ export function createDefaultIssuerDraft(contractAddress = DEFAULT_CONTRACT_ADDR
       },
       certification: {
         exporter_declaration_date: "2026-05-02",
-        issuing_authority: "Ministry of Industry and Trade (MOIT) Vietnam",
+        issuing_authority: "Regional Import-Export Management Office, Ministry of Industry and Trade",
         certification_date: "2026-05-03",
         authority_signature: "Nguyen Van C",
       },

@@ -3,11 +3,10 @@ import hardhatIgnitionPlugin from "@nomicfoundation/hardhat-ignition";
 import hardhatIgnitionEthersPlugin from "@nomicfoundation/hardhat-ignition-ethers";
 import hardhatKeystorePlugin from "@nomicfoundation/hardhat-keystore";
 import hardhatMochaPlugin from "@nomicfoundation/hardhat-mocha";
+import hardhatEthersChaiMatchersPlugin from "@nomicfoundation/hardhat-ethers-chai-matchers";
 import hardhatVerifyPlugin from "@nomicfoundation/hardhat-verify";
 import { configVariable, defineConfig } from "hardhat/config";
 import "dotenv/config";
-
-console.log("API KEY =", process.env.POLYGONSCAN_API_KEY);
 
 export default defineConfig({
   plugins: [
@@ -16,8 +15,20 @@ export default defineConfig({
     hardhatIgnitionEthersPlugin,
     hardhatKeystorePlugin,
     hardhatMochaPlugin,
+    hardhatEthersChaiMatchersPlugin,
     hardhatVerifyPlugin,
   ],
+  test: {
+    mocha: {
+      rootHooks: {
+        async beforeAll() {
+          const { network } = await import("hardhat");
+          const { ethers } = await network.getOrCreate();
+          globalThis.ethers = ethers;
+        },
+      },
+    },
+  },
   solidity: {
     profiles: {
       default: {
@@ -46,8 +57,9 @@ export default defineConfig({
     polygon_amoy: {
       type: "http",
       chainType: "l1",
-      url: "https://rpc-amoy.polygon.technology",
-      accounts: [configVariable("PRIVATE_KEY")]
+      url: process.env.AMOY_RPC_URL || "https://polygon-amoy.drpc.org",
+      accounts: [configVariable("PRIVATE_KEY")],
+      gasPrice: 30000000000,
     },
   },
   etherscan: {

@@ -7,6 +7,7 @@
   "required": [
     "name",
     "description",
+    "documentHash",
     "co_document_details",
     "blockchain_proof"
   ],
@@ -15,6 +16,9 @@
       "type": "string"
     },
     "description": {
+      "type": "string"
+    },
+    "documentHash": {
       "type": "string"
     },
     "image": {

@@ -198,6 +198,7 @@ export function historyMeta(eventName) {
 export function computeDocumentHash(metadata) {
   const hashSource = {
     ...metadata,
+    documentHash: "",
     blockchain_proof: {
       ...metadata.blockchain_proof,
       nft_token_id: 0,
@@ -223,12 +224,30 @@ export function toTokenUri(cid) {
 }
 
 export function buildMetadata(issuerDraft, contractAddress) {
+  const details = cloneJson(issuerDraft.co_document_details);
+  const hsCode = details.goods_items?.[0]?.hs_code || "";
+  const grossWeight = details.goods_items?.[0]?.gross_weight || "";
+  const quantity = details.goods_items?.[0]?.quantity || "";
+  const qtyWeight = [quantity, grossWeight].filter(Boolean).join(" / ");
+  const issuingAuthority = details.certification?.issuing_authority || "Regional Import-Export Management Office, Ministry of Industry and Trade";
+
   return {
     name: issuerDraft.name,
     description: issuerDraft.description,
     image: issuerDraft.image,
     external_url: issuerDraft.external_url,
-    co_document_details: cloneJson(issuerDraft.co_document_details),
+    documentHash: issuerDraft.blockchain_proof?.co_document_hash || "",
+    attributes: [
+      { trait_type: "C/O Standard", value: details.co_standard || "ATIGA_FORM_D" },
+      { trait_type: "Issuing Authority", value: issuingAuthority },
+      { trait_type: "Consignee Name", value: details.consignee?.name || "" },
+      { trait_type: "HS Code", value: hsCode },
+      { trait_type: "Quantity and Gross Weight", value: qtyWeight },
+      { trait_type: "Country of Origin", value: details.issuing_country || "Vietnam" },
+      { trait_type: "Issue Date", value: details.issue_date || "" },
+      { trait_type: "Origin Criterion", value: details.goods_items?.[0]?.origin_criterion || "RVC 40%" },
+    ],
+    co_document_details: details,
     blockchain_proof: {
       ...cloneJson(issuerDraft.blockchain_proof),
       contract_address: contractAddress,

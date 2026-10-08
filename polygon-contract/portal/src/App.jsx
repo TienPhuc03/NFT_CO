@@ -111,6 +111,7 @@ function App() {
   const metadataPreview = useMemo(() => {
     const preview = {
       ...metadataBase,
+      documentHash: documentHash,
       blockchain_proof: {
         ...metadataBase.blockchain_proof,
         co_document_hash: documentHash,

@@ -3,13 +3,16 @@
   "description": "Giấy chứng nhận xuất xứ điện tử (e-CoO) mẫu D theo Hiệp định Thương mại Hàng hóa ASEAN (ATIGA). Tham chiếu: VN-D-2026-00001.",
   "image": "ipfs://<Hash_của_bản_scan_hoặc_QR_Code_trên_IPFS>",
   "external_url": "https://your-dapp-domain.com/co/VN-D-2026-00001",
+  "documentHash": "0xabc1234567890123456789012345678901234567890123456789012345678901",
   "attributes": [
     { "trait_type": "C/O Standard", "value": "ATIGA_FORM_D" },
-    { "trait_type": "Issuing Country", "value": "Vietnam" },
-    { "display_type": "date", "trait_type": "Issue Date", "value": 1714694400 },
+    { "trait_type": "Issuing Authority", "value": "Regional Import-Export Management Office, Ministry of Industry and Trade" },
+    { "trait_type": "Consignee Name", "value": "Company B PTE LTD" },
+    { "trait_type": "HS Code", "value": "100590" },
+    { "trait_type": "Quantity and Gross Weight", "value": "5000 kg" },
+    { "trait_type": "Country of Origin", "value": "Vietnam" },
+    { "trait_type": "Issue Date", "value": "2026-05-03" },
     { "trait_type": "Origin Criterion", "value": "RVC 40%" },
-    { "trait_type": "Revocation Status", "value": "Valid" },
-    
     { "trait_type": "Third Country Invoicing", "value": "False" },
     { "trait_type": "Back-to-Back CO", "value": "False" },
     { "trait_type": "Accumulation", "value": "False" },
@@ -71,7 +74,7 @@
     },
     "certification": {
       "exporter_declaration_date": "2026-05-02",
-      "issuing_authority": "Ministry of Industry and Trade (MOIT) Vietnam",
+      "issuing_authority": "Regional Import-Export Management Office, Ministry of Industry and Trade",
       "certification_date": "2026-05-03",
       "authority_signature": "Nguyen Van C"
     }
@@ -79,7 +82,7 @@
   "blockchain_proof": {
     "nft_token_id": 1,
     "contract_address": "0x789...",
-    "co_document_hash": "0xabc123...",
+    "co_document_hash": "0xabc1234567890123456789012345678901234567890123456789012345678901",
     "ipfs_cid": "bafybeibnsou..."
   }
 }

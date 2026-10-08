@@ -1,0 +1,10 @@
+{
+  "network": "polygon_amoy",
+  "chainId": "80002",
+  "deployer": "0xaF3fdA05887897639656dB981c7B443610456fc7",
+  "timestamp": "2026-09-23T09:27:43.949Z",
+  "contracts": {
+    "CertificateNFT": "0x9509237D04a42A7A647869b799f505a846115bb0",
+    "CORegistry": "0xCFd0a4FB20e49A4a7823Ee9b171ee5d96c39B532"
+  }
+}
